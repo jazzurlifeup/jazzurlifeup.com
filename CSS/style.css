@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFFEF1;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px; /* Space for fixed header */
+    height: 100vh; /* Ensures body takes full viewport height */
+    overflow: hidden; /* Prevents scrolling when image fills screen */
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.header {
+    background-color: #E5E4D8;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Header Logo */
+.header-logo {
+    height: 40px;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+/* Navigation Styling */
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: #9DBCD6;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active Link */
+.nav-link.active {
+    color: #7EA3BC;
+}
+
+/* Hover Effect */
+.nav-link:hover {
+    color: #7EA3BC;
+}
+
+/* Main Content */
+.main-content {
+    text-align: center;
+    width: 100%;
+    height: 100vh; /* Makes content take full viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centered Text */
+.content-overlay p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Full-Screen Avalanche Image */
+.fade-in-sketch {
+    width: 100vw; /* Makes image take full width of the screen */
+    height: 100vh; /* Makes image take full height of the screen */
+    object-fit: cover; /* Ensures image fills the space without distortion */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensures image stays behind text */
+    animation: fadeIn 3s ease-in forwards;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 900px) {
+    .nav {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+}
+
+

@@ -1,0 +1,148 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFFEF1; /* Background color from CV */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px; /* Space for fixed header */
+}
+
+/* Container Styling */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.header {
+    background-color: #E5E4D8; /* Light header bar color */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Header Logo Styling */
+.header-logo {
+    height: 40px; /* Adjust size as needed */
+    max-width: 200px; /* Prevents it from getting too large */
+    object-fit: contain;
+}
+
+/* Navigation Styling */
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: #9DBCD6; /* Link color from CV */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active Link */
+.nav-link.active {
+    color: #7EA3BC;
+}
+
+/* Hover Effect */
+.nav-link:hover {
+    color: #7EA3BC;
+}
+
+/* Main Content Styling */
+.main-content {
+    text-align: center;
+    margin-top: 80px; /* Ensures content does not overlap header */
+}
+
+/* Contact Content Layout */
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Text Content - Widened */
+.text-content {
+    flex: 1;
+    width: 55%;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    position: relative;
+}
+
+/* Contact Title Image */
+.contact-title {
+    display: block;
+    max-width: 100%;
+    width: 250px; /* Adjust as needed */
+    margin: 0 auto 20px auto; /* Centers the image */
+}
+
+/* Contact Links */
+.contact-section a {
+    color: #7EA3BC;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Picture - Bigger */
+.profile-pic {
+    width: 50%; /* Takes up more screen space */
+    height: auto;
+    object-fit: cover;
+}
+
+/* Section Styling */
+.contact-section {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Responsive Design Adjustments */
+@media screen and (max-width: 900px) {
+    .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        width: 90%;
+    }
+
+    .profile-pic {
+        width: 90%;
+    }
+}
