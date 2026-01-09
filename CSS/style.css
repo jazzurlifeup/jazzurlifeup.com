@@ -232,3 +232,8 @@ body {
         border-bottom: 3px solid #313244; 
     }
 }
+
+.artwork-list a {
+    text-decoration: none;
+    display: block;
+}
