@@ -1,239 +1,121 @@
-/* --- 1. EXTERNAL FONTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 
-/* --- 2. GLOBAL RESET & BASE STYLES --- */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
     font-family: 'Arial', sans-serif; 
     background-color: #FFFEF1; 
     display: flex; 
-    min-height: 100vh; 
+    min-height: 100vh;
+    position: relative;
 }
 
-/* --- 3. SIDEBAR NAVIGATION --- */
 .header {
-    width: 240px;
-    background-color: #313244;
-    padding: 40px 0; 
-    position: fixed;
-    height: 100vh;
-    left: 0; 
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 240px; background-color: #313244;
+    padding: 40px 0; position: fixed;
+    height: 100vh; left: 0; top: 0;
+    z-index: 1000; display: flex;
+    flex-direction: column; align-items: center;
 }
 
-.logo-container {
-    padding: 10px 25px 40px 25px; 
-    width: 100%;
-}
+.logo-container { padding: 10px 25px 40px 25px; width: 100%; }
+.logo-container img { width: 100%; height: auto; display: block; }
 
-.logo-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.nav {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
+.nav { width: 100%; display: flex; flex-direction: column; }
 .nav-link {
     font-family: "Arial Narrow", Arial, sans-serif;
-    font-weight: bold;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 1.15rem;
-    padding: 18px 10px;
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-align: center;
+    font-weight: bold; color: #FFFFFF; text-decoration: none;
+    font-size: 1.15rem; padding: 18px 10px; display: block;
+    text-transform: uppercase; letter-spacing: 3px; text-align: center;
     transition: all 0.3s ease;
 }
+.nav-link.active { background-color: #FFFEF1; color: #313244; }
+.nav-link:hover:not(.active) { color: #9DBCD6; }
 
-/* Sidebar Active State */
-.nav-link.active {
-    background-color: #FFFEF1;
-    color: #313244;
-}
-
-.nav-link:hover:not(.active) { 
-    color: #9DBCD6; 
-}
-
-/* --- 4. MAIN CONTENT AREA --- */
 .main-content {
-    margin-left: 240px;
-    flex: 1;
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers children horizontally */
+    margin-left: 240px; flex: 1; padding: 80px;
+    display: flex; flex-direction: column; align-items: center; 
 }
 
-/* --- 5. HEADERS & CUSTOM UNDERLINE --- */
 .page-header {
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 50px;
-    position: relative;
-    padding-bottom: 35px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%; max-width: 800px; margin-bottom: 50px;
+    position: relative; padding-bottom: 35px; 
+    display: flex; flex-direction: column; align-items: center;
 }
-
 .page-header h1 {
-    font-family: 'Caprasimo', serif;
-    font-weight: normal; 
-    font-size: 3rem; 
-    color: #313244;
-    text-transform: uppercase;
-    text-align: center;
+    font-family: 'Caprasimo', serif; font-size: 3rem; 
+    color: #313244; text-transform: uppercase; text-align: center;
 }
-
-/* Hand-drawn Underline PNG */
 .page-header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%; 
-    height: 25px; 
+    content: ""; position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%); width: 100%; height: 25px; 
     background-image: url('../artwork/assets/underline.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: contain; background-repeat: no-repeat; background-position: center;
 }
 
-/* --- 6. TEXT & CONTENT STYLING --- */
-.content-text {
-    max-width: 750px;
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #313244;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Ensures inner items like images center too */
-}
+.content-text { max-width: 750px; text-align: center; font-size: 1.1rem; line-height: 1.8; color: #313244; display: flex; flex-direction: column; align-items: center; }
+.content-text p { margin-bottom: 25px; }
 
-.content-text p {
-    margin-bottom: 25px;
-}
+.featured-image { margin: 40px auto; width: 80%; max-width: 600px; border-radius: 4px; overflow: hidden; display: block; }
+.featured-image img { width: 100%; height: auto; display: block; }
 
-/* Featured Image (Home Page) */
-.featured-image {
-    margin-top: 40px;
-    width: 60%; 
-    max-width: 500px; 
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 800px; margin-bottom: 30px; border-radius: 8px; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-.featured-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+.back-button { display: inline-block; margin-top: 40px; text-decoration: none; color: #313244; font-weight: bold; border-bottom: 2px solid #313244; }
 
-/* --- 7. ARTWORK LIST (GALLERY) --- */
-.artwork-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
-    max-width: 800px;
-}
+.artwork-list { display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 800px; }
 
-.artwork-row {
-    width: 100%;
-    height: 180px;
-    position: relative;
-    cursor: pointer;
-    background-color: #313244;
-    overflow: hidden;
-    border-radius: 2px;
+.artwork-row { 
+    width: 100%; 
+    height: 180px; 
+    position: relative; 
+    cursor: pointer; 
+    background-color: #313244; 
+    overflow: hidden; 
+    border-radius: 2px; 
+    text-decoration: none; 
 }
-
-.artwork-row img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.4s ease;
+.artwork-row img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center 20%;
+    transition: opacity 0.4s ease; 
 }
-
-/* Sketch Overlay on Hover */
-.artwork-row::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('../artwork/assets/sketchedoverlay.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-}
-
 .artwork-row:hover img { opacity: 0.35; }
-.artwork-row:hover::after { opacity: 1; }
 
-/* --- 8. LIGHTBOX --- */
-.lightbox {
+.lightbox { 
     position: fixed; 
-    inset: 0; 
-    background: rgba(49, 50, 68, 0.98);
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh; 
+    background: rgba(49, 50, 68, 0.98); 
     display: none; 
     justify-content: center; 
     align-items: center; 
-    z-index: 2000;
+    z-index: 99999; 
+}
+.lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+body::after {
+    content: ""; position: fixed; right: 0; top: 0;
+    width: 20px; height: 100vh;
+    background-image: url('../artwork/assets/sidebar.png');
+    background-size: cover; background-position: top right;
+    z-index: 9999; pointer-events: none;
 }
 
-.lightbox img { 
-    max-width: 90%; 
-    max-height: 90%; 
-}
-
-/* --- 9. MOBILE RESPONSIVENESS --- */
 @media screen and (max-width: 850px) {
-    .header { 
-        width: 100%; 
-        height: auto; 
-        position: relative; 
-        padding: 20px 0; 
-    }
+    body { flex-direction: column; }
+    .header { width: 100%; height: auto; position: relative; padding: 20px 0; display: flex; flex-direction: column; align-items: center; }
+    .logo-container { width: 150px; margin: 0 auto; padding-bottom: 15px; }
+    .nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .nav-link { padding: 10px 12px; font-size: 0.85rem; letter-spacing: 1px; }
+    .main-content { margin-left: 0; padding: 40px 20px; width: 100%; }
     
-    .logo-container { 
-        width: 180px; 
-        margin: 0 auto; 
-        padding-bottom: 10px; 
-    }
+    .artwork-row { height: auto; }
+    .artwork-row img { height: auto; }
     
-    .main-content { 
-        margin-left: 0; 
-        padding: 40px 20px; 
-    }
-    
-    .nav-link.active { 
-        background-color: transparent; 
-        border-bottom: 3px solid #313244; 
-    }
-}
-
-.artwork-list a {
-    text-decoration: none;
-    display: block;
+    body::after { display: none; }
+    .nav-link.active { background-color: transparent; border-bottom: 2px solid #313244; }
 }
