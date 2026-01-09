@@ -1,130 +1,234 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- 1. EXTERNAL FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+
+/* --- 2. GLOBAL RESET & BASE STYLES --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #FFFEF1;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 100px; /* Space for fixed header */
-    height: 100vh; /* Ensures body takes full viewport height */
-    overflow: hidden; /* Prevents scrolling when image fills screen */
+body { 
+    font-family: 'Arial', sans-serif; 
+    background-color: #FFFEF1; 
+    display: flex; 
+    min-height: 100vh; 
 }
 
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Header Styling */
+/* --- 3. SIDEBAR NAVIGATION --- */
 .header {
-    background-color: #E5E4D8;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 240px;
+    background-color: #313244;
+    padding: 40px 0; 
     position: fixed;
+    height: 100vh;
+    left: 0; 
     top: 0;
-    left: 0;
-    width: 100%;
     z-index: 1000;
-}
-
-/* Header Logo */
-.header-logo {
-    height: 40px;
-    max-width: 200px;
-    object-fit: contain;
-}
-
-/* Navigation Styling */
-.nav {
-    display: flex;
-    gap: 20px;
-}
-
-/* Navigation Links */
-.nav-link {
-    color: #9DBCD6;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-/* Active Link */
-.nav-link.active {
-    color: #7EA3BC;
-}
-
-/* Hover Effect */
-.nav-link:hover {
-    color: #7EA3BC;
-}
-
-/* Main Content */
-.main-content {
-    text-align: center;
-    width: 100%;
-    height: 100vh; /* Makes content take full viewport */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-/* Centered Text */
-.content-overlay p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #333;
+.logo-container {
+    padding: 10px 25px 40px 25px; 
+    width: 100%;
+}
+
+.logo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link {
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.15rem;
+    padding: 18px 10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Sidebar Active State */
+.nav-link.active {
+    background-color: #FFFEF1;
+    color: #313244;
+}
+
+.nav-link:hover:not(.active) { 
+    color: #9DBCD6; 
+}
+
+/* --- 4. MAIN CONTENT AREA --- */
+.main-content {
+    margin-left: 240px;
+    flex: 1;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers children horizontally */
+}
+
+/* --- 5. HEADERS & CUSTOM UNDERLINE --- */
+.page-header {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 35px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-header h1 {
+    font-family: 'Caprasimo', serif;
+    font-weight: normal; 
+    font-size: 3rem; 
+    color: #313244;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Hand-drawn Underline PNG */
+.page-header::after {
+    content: "";
     position: absolute;
-    top: 20%;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%; 
+    height: 25px; 
+    background-image: url('../artwork/assets/underline.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* --- 6. TEXT & CONTENT STYLING --- */
+.content-text {
+    max-width: 750px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #313244;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures inner items like images center too */
+}
+
+.content-text p {
+    margin-bottom: 25px;
+}
+
+/* Featured Image (Home Page) */
+.featured-image {
+    margin-top: 40px;
+    width: 60%; 
+    max-width: 500px; 
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- 7. ARTWORK LIST (GALLERY) --- */
+.artwork-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.artwork-row {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    cursor: pointer;
+    background-color: #313244;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.artwork-row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease;
+}
+
+/* Sketch Overlay on Hover */
+.artwork-row::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../artwork/assets/sketchedoverlay.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: 2;
 }
 
-/* Full-Screen Avalanche Image */
-.fade-in-sketch {
-    width: 100vw; /* Makes image take full width of the screen */
-    height: 100vh; /* Makes image take full height of the screen */
-    object-fit: cover; /* Ensures image fills the space without distortion */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Ensures image stays behind text */
-    animation: fadeIn 3s ease-in forwards;
+.artwork-row:hover img { opacity: 0.35; }
+.artwork-row:hover::after { opacity: 1; }
+
+/* --- 8. LIGHTBOX --- */
+.lightbox {
+    position: fixed; 
+    inset: 0; 
+    background: rgba(49, 50, 68, 0.98);
+    display: none; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 2000;
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.lightbox img { 
+    max-width: 90%; 
+    max-height: 90%; 
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 900px) {
-    .nav {
-        gap: 15px;
+/* --- 9. MOBILE RESPONSIVENESS --- */
+@media screen and (max-width: 850px) {
+    .header { 
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+        padding: 20px 0; 
     }
-
-    .nav-link {
-        font-size: 14px;
+    
+    .logo-container { 
+        width: 180px; 
+        margin: 0 auto; 
+        padding-bottom: 10px; 
+    }
+    
+    .main-content { 
+        margin-left: 0; 
+        padding: 40px 20px; 
+    }
+    
+    .nav-link.active { 
+        background-color: transparent; 
+        border-bottom: 3px solid #313244; 
     }
 }
-
-
