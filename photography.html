@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jazz Spence - Photography</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="index.html"><img src="artwork/assets/jazzspence_wave.png" alt="Jazz Spence Logo"></a>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="artwork.html" class="nav-link">ARTWORK</a>
+            <a href="projects.html" class="nav-link">PROJECTS</a>
+            <a href="photography.html" class="nav-link active">PHOTOGRAPHY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header"><h1>PHOTOGRAPHY</h1></div>
+        <div class="photo-scroll-container" id="photoGallery">
+            <div class="photo-track">
+                <img src="photogallery/workpics/onylhands_TMBNL.jpg" alt="OnlyHands Thumbnail">
+                <img src="photogallery/workpics/DSC08543.png" alt="Photo 8543">
+                <img src="photogallery/workpics/1.jpg" alt="Photo 1">
+                <img src="photogallery/workpics/SA_Landi_191125_-15.jpg" alt="Photo 15">
+                <img src="photogallery/workpics/DSC00782.png" alt="Photo 0782">
+                <img src="photogallery/workpics/3.jpg" alt="Photo 3">
+                <img src="photogallery/workpics/Mimi_retouched.png" alt="Mimi Retouched">
+                <img src="photogallery/workpics/DSC08576.png" alt="Photo 8576">
+                <img src="photogallery/workpics/DSC09489.png" alt="Photo 9489">
+                <img src="photogallery/workpics/SA_Landi_191125_-21.jpg" alt="Photo 21">
+                <img src="photogallery/workpics/4.jpg" alt="Photo 4">
+                <img src="photogallery/workpics/DSC00772.png" alt="Photo 0772">
+                <img src="photogallery/workpics/SA_Landi_191125_-24.jpg" alt="Photo 24">
+                <img src="photogallery/workpics/DSC08486.png" alt="Photo 8486">
+                <img src="photogallery/workpics/DSC08385.png" alt="Photo 8385">
+                <img src="photogallery/workpics/DSC00792.png" alt="Photo 0792">
+                <img src="photogallery/workpics/DSC08365.png" alt="Photo 8365">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const slider = document.getElementById('photoGallery');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            slider.scrollLeft += evt.deltaY;
+        });
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; 
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
